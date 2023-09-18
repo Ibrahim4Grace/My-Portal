@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views</title>
+
+    <style type="text/css">
+        a {
+            color: BLACK;
+            text-decoration: NONE;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        table caption {
+            font-size: 1.5em;
+            margin: .5em 0 .75em;
+        }
+
+        table tr {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: .35em;
+        }
+
+        table th,
+        table td {
+            padding: .625em;
+            text-align: center;
+        }
+
+        table th {
+            font-size: .85em;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                border: 0;
+            }
+
+            table caption {
+                font-size: 1.3em;
+            }
+
+            table thead {
+                border: none;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            table tr {
+                border-bottom: 3px solid #ddd;
+                display: block;
+                margin-bottom: .625em;
+            }
+
+            table td {
+                border-bottom: 1px solid #ddd;
+                display: block;
+                font-size: .8em;
+                text-align: right;
+            }
+
+            table td::before {
+
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            table td:last-child {
+                border-bottom: 0;
+            }
+
+            body {
+                font-family: "Open Sans", sans-serif;
+                line-height: 1.25;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+
+        <h3> View details</h3>
+
+        <table>
+            <thead>
+                <tr>
+
+
+                    <th scope="col">Fullname</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Selected Course</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!--// DATA FINDONE FOR RECORDS -->
+
+
+                    <td data-label="Fullname"><%- data.name %></td>
+                    <td data-label="Email"><%- data.email %></td>
+                    <td data-label="Selected Course"><%- data.scour %></td>
+                    <td data-label="Edit"><a href="/edit/<%- data._id %>"> Edit</a></td>
+                    <td data-label="Delete"><a href="/delete/<%- data._id %>"> Delete</a></td>
+
+                </tr>
+            </tbody>
+
+
+        </table><br>
+
+        <p><a href="/dashboard" class="btn btn-secondary">HomePage</a></p>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

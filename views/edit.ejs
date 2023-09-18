@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <style>
+        .main {
+            width: 30%;
+            margin: auto;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 4px;
+            background-color: #82A1C5;
+            max-width: 400px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .main {
+                width: 100%;
+                padding: 10px;
+                margin-top: 20px;
+
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .main {
+                width: 80%;
+                padding: 10px;
+                margin-top: 20px;
+
+            }
+        }
+
+
+        input {
+            background-color: #979797;
+            border: none;
+            color: white;
+            height: 35px;
+            border-radius: 4px;
+            /* text-align: center; */
+            opacity: 1;
+            Font-Family: "News Cycle", "Arial Narrow Bold", sans-serif;
+            Font-Size: 16px;
+            Line-Height: 24px;
+            font-weight: 700;
+        }
+
+        select {
+            background-color: #979797;
+            border: none;
+            color: white;
+            height: 35px;
+        }
+
+        span {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <h3>Edit Information</h3>
+        <form action="/edit/<%- data._id %>" method="post">
+
+            <label>Full Name:</label>
+            <p> <input type="text" name="name" value="<%- data.name %>"></p>
+
+            <label>Email:</label>
+            <p> <input type="text" name="email" value="<%- data.email %>"></p>
+
+            <% let selectCourse=["Software Development", "Web Development" , "Frontend Development" , "Data Science"
+                , "FullStack Development" ] %>
+
+                <label>Select Course :</label>
+                <p>
+                    <select name="scour" required>
+                        <option value="<%- data.scour %>"><%- data.scour %>
+
+                        <% selectCourse.forEach((so)=>{ %>
+                            <option value="<%- so %>"><%- so %></option>
+                            <% }) %>
+                    </select>
+                </p>
+
+
+
+                <input type="submit" class="btn btn-secondary" value="Click to Update" name="">
+
+                <span><a href="/dashboard" class="btn btn-secondary">HomePage</a></span>
+
+
+        </form>
+
+    </div>
+
+
+
+</body>
+
+</html>

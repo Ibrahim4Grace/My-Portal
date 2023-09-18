@@ -1,0 +1,5 @@
+#FILES TO BE IGNORED
+
+/node_modules/
+/npm-debug.log/
+/public/

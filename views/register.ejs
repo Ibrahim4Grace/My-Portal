@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/css/back.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+</head>
+
+<body>
+
+
+
+    <span class="background"></span>
+    <span class="centering">
+
+        <form class="my-form" action="/users/register" method="post">
+            <span class="login-welcome-row">
+                <!-- optimize the image in production -->
+                <h1>Registration Portal!</h1>
+            </span>
+            <%- include (`./partials/messages`); -%>
+                <div class="text-field">
+                    <label for="Fullname">Fullname:</label>
+                    <input type="text" id="Fullname" name="name" placeholder="Your Fullname"
+                        value="<%= typeof name != 'undefined' ? name : '' %>" />
+                </div>
+
+                <div class="text-field">
+                    <label for="email">Email:</label>
+                    <input aria-label="Email" type="email" id="email" name="email" placeholder="Your Email"
+                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                </div>
+
+                <div class="text-field">
+                    <% let selectCourse=["Software Development", "Web Development" , "Frontend Development"
+                        , "Data Science" , "FullStack Development" ] %>
+
+                        <label for="name" class="formbold-label"> Select Course </label>
+                        <select class="formbolder-form-input" name="scour" id="Course"
+                            value="<%= typeof scour != 'undefined' ? scour : '' %>" />
+
+                        <option value="">Select Course</option>
+
+                        <% selectCourse.forEach((so)=> { %>
+                            <option value="<%- so %>"><%- so %></option>
+
+                            <% }) %>
+
+                                </select><br>
+
+                </div>
+
+                <div class="text-field">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" aria-label="Password" name="password"
+                        placeholder="Enter Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+                </div>
+
+                <div class="text-field">
+                    <label for="password">Confirm Password:</label>
+                    <input id="password" type="password" aria-label="Password" name="password2"
+                        placeholder="Confirm Password"
+                        value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                </div>
+
+                <input type="submit" class="my-form__button" value="Register" />
+                <div class="my-form__actions">
+                    <div class="my-form__signup">
+                        <a href="/users/login" title="Create Account">Log in </a>
+                    </div>
+                </div>
+        </form>
+    </span>
+
+</body>
+
+</html>
